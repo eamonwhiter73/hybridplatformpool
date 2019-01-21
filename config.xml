@@ -22,5 +22,7 @@
     </platform>
     <access origin="*" />
     <preference name="BackupWebStorage" value="local" />
+    <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
     <engine name="ios" spec="~4.5.5" />
+    <engine name="browser" spec="^5.0.4" />
 </widget>

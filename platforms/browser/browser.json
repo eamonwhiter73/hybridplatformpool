@@ -6,6 +6,70 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {},
-    "dependent_plugins": {}
+    "installed_plugins": {
+        "cordova-universal-links-plugin": {
+            "PACKAGE_NAME": "com.eamon.pool"
+        },
+        "cordova-plugin-buildinfo": {
+            "PACKAGE_NAME": "com.eamon.pool"
+        },
+        "cordova-plugin-browsertab": {
+            "PACKAGE_NAME": "com.eamon.pool"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.eamon.pool"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.eamon.pool"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-universal-links-plugin/www/universal_links.js",
+            "id": "cordova-universal-links-plugin.universalLinks",
+            "pluginId": "cordova-universal-links-plugin",
+            "clobbers": [
+                "universalLinks"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-buildinfo/www/buildinfo.js",
+            "id": "cordova-plugin-buildinfo.BuildInfo",
+            "pluginId": "cordova-plugin-buildinfo",
+            "clobbers": [
+                "BuildInfo"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-browsertab/www/browsertab.js",
+            "id": "cordova-plugin-browsertab.BrowserTab",
+            "pluginId": "cordova-plugin-browsertab",
+            "clobbers": [
+                "cordova.plugins.browsertab"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
+            "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "runs": true
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-universal-links-plugin": "1.2.1",
+        "cordova-plugin-buildinfo": "2.0.2",
+        "cordova-plugin-browsertab": "0.2.0",
+        "cordova-plugin-inappbrowser": "3.0.0",
+        "cordova-plugin-compat": "1.2.0"
+    }
 }

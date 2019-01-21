@@ -20,9 +20,9 @@
 var auth = {
     presentLogin: function() {
         var provider = new firebase.auth.FacebookAuthProvider();
-        provider.addScope('default');
+        //provider.addScope('default');
         provider.addScope('email');
-        provider.addScope('pages_show_list');
+        //provider.addScope('pages_show_list');
 
         firebase.auth().signInWithRedirect(provider);
 

@@ -4,10 +4,23 @@
   "displayName": "HybridPool",
   "cordova": {
     "platforms": [
-      "ios"
-    ]
+      "ios",
+      "browser"
+    ],
+    "plugins": {
+      "cordova-universal-links-plugin": {},
+      "cordova-plugin-buildinfo": {},
+      "cordova-plugin-browsertab": {},
+      "cordova-plugin-inappbrowser": {}
+    }
   },
   "dependencies": {
-    "cordova-ios": "~4.5.5"
+    "cordova-browser": "^5.0.4",
+    "cordova-ios": "~4.5.5",
+    "cordova-plugin-browsertab": "0.2.0",
+    "cordova-plugin-buildinfo": "2.0.2",
+    "cordova-plugin-compat": "1.2.0",
+    "cordova-plugin-inappbrowser": "3.0.0",
+    "cordova-universal-links-plugin": "git+https://github.com/walteram/cordova-universal-links-plugin.git"
   }
 }
