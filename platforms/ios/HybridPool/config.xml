@@ -50,8 +50,10 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
-    <access origin="*" />
     <resource-file src="GoogleService-Info.plist" />
+    <access origin="*" />
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="local" />
     <preference name="DisallowOverscroll" value="false" />

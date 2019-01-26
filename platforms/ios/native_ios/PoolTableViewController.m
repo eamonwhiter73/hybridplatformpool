@@ -50,7 +50,8 @@
     [super viewDidLoad];
     [self.items addObject:@"Hio"];
     self.tableView.separatorColor = [UIColor clearColor];
-
+    self.wwwFolderName = @"www/templates";
+    self.startPage = @"pool.html";
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -42,7 +42,7 @@
     return self;
 }
 
-- (void)viewWillLayoutSubviews {
+/*- (void)viewWillLayoutSubviews {
     CGRect webViewBound = CGRectMake(0,
                                      0,
                                      0,
@@ -52,12 +52,13 @@
     self.webView.backgroundColor = [UIColor clearColor];
     
     [super viewWillLayoutSubviews];
-}
+}*/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.pools addObject:@"Hello"];
     self.tableView.separatorColor = [UIColor clearColor];
+    self.webView.hidden = true;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

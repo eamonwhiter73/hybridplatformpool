@@ -13,6 +13,8 @@
     NSArray* pools = command.arguments;
     //NSLog(@"argument: %@", [pools description]);
     
+    NSLog(@"Subviews being described: %@", [[[[[UIApplication sharedApplication] delegate] window] subviews] description]);
+    
     if(pools != nil || pools.count > 0) {
         NSLog(@"addpools %@", [pools description]);
 

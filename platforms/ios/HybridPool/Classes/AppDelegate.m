@@ -26,13 +26,14 @@
 //
 
 #import "AppDelegate.h"
-#import "PoolsTableViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-    self.viewController = [[PoolsTableViewController alloc] init];
+    NSLog(@"DID FINISH LOADING WITH OPTIONS!");
+    self.viewController = (UITabBarController*)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tabbar"];
+    
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 

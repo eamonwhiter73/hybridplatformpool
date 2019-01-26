@@ -18,14 +18,15 @@
  */
 
 var auth = {
-    presentLogin: function() {
+    presentLogin: async function () {
         var provider = new firebase.auth.FacebookAuthProvider();
         //provider.addScope('default');
         provider.addScope('email');
         //provider.addScope('pages_show_list');
 
-        firebase.auth().signInWithRedirect(provider);
-
+        return firebase.auth().signInWithRedirect(provider);
+    },
+    getResult: function () {
         firebase.auth().getRedirectResult().then(function(result) {
         
             if (result.credential) {
@@ -38,11 +39,15 @@ var auth = {
             app.user = result.user;
             
             console.log("result.user in presentLogin:", app.user);
+        }).then(function() {
+            //iosNav.getCurrentTabControllerName();
+            iosNav.toggleWebView();
+            iosNav.getCurrentTabControllerName(app.user);
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
-            console.log("errorMessage in presentLogin:", errorMessage);
+            alert("Error:", error);
             
             // The email of the user's account used.
             var email = error.email;
