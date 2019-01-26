@@ -34,7 +34,7 @@ var iosNav = {
                 });
             }
             else {
-                iosNav.routing(prevUser, controller);
+                iosNav.hasLoaded(prevUser, controller);
             }
         };
         var fail = function(e) {
@@ -44,6 +44,7 @@ var iosNav = {
         cordova.exec(win, fail, "NavigationPlugin", "getCurrentTabControllerName", []);
     },
     routing: function (user, controller) {
+        console.log("user in routing:", JSON.stringify(user));
         app.user = user;
 
         switch(controller.className) {
@@ -64,6 +65,18 @@ var iosNav = {
           default:
             // code block
         }
+    },
+    hasLoaded: function (user, controller) {
+        var win = function(d) {
+            console.log("Loaded?:", d);
+            if(d == "notLoaded") {
+                iosNav.routing(user, controller);
+            }
+        };
+        var fail = function(e) {
+            console.log(e)
+        }
+        cordova.exec(win, fail, "ListPlugin", "hasLoaded", []);
     },
     toggleWebViewWithAuth: function () {
         var win = function(d) {

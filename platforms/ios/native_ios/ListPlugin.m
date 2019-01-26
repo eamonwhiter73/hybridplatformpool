@@ -11,9 +11,6 @@
 
 -(void)addPools:(CDVInvokedUrlCommand*) command {
     NSArray* pools = command.arguments;
-    //NSLog(@"argument: %@", [pools description]);
-    
-    NSLog(@"Subviews being described: %@", [[[[[UIApplication sharedApplication] delegate] window] subviews] description]);
     
     if(pools != nil || pools.count > 0) {
         NSLog(@"addpools %@", [pools description]);
@@ -36,7 +33,6 @@
 
 -(void)addItems:(CDVInvokedUrlCommand*) command {
     NSArray* items = command.arguments;
-    //NSLog(@"argument: %@", [pools description]);
     
     if(items != nil || items.count > 0) {
         NSLog(@"addpools %@", [items description]);
@@ -54,6 +50,26 @@
     } else {
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }
+}
+
+- (void)hasLoaded:(CDVInvokedUrlCommand*) command {
+    if([[self viewController] isKindOfClass:[PoolsTableViewController class]]) {
+        PoolsTableViewController* pvc = (PoolsTableViewController*)[self viewController];
+        
+        //CHANGE 1 TO 0 when going to real scenario without preloaded items (1 row has been preloaded)
+        if([[pvc.tableView indexPathsForVisibleRows] count] > 1) {
+            CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"hasLoaded"];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        }
+        else if([[pvc.tableView indexPathsForVisibleRows] count] == 1) {
+            CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"notLoaded"];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        }
+        else {
+            CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        }
     }
 }
 

@@ -20,9 +20,8 @@
 var auth = {
     presentLogin: async function () {
         var provider = new firebase.auth.FacebookAuthProvider();
-        //provider.addScope('default');
         provider.addScope('email');
-        //provider.addScope('pages_show_list');
+        provider.addScope('pages_show_list');
 
         return firebase.auth().signInWithRedirect(provider);
     },
@@ -38,7 +37,9 @@ var auth = {
             // The signed-in user info.
             app.user = result.user;
             
-            console.log("result.user in presentLogin:", app.user);
+            console.log("result.user in presentLogin:", JSON.stringify(app.user));
+
+
         }).then(function() {
             //iosNav.getCurrentTabControllerName();
             iosNav.toggleWebView();

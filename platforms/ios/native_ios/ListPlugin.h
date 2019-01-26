@@ -4,4 +4,6 @@
 
 @interface ListPlugin : CDVPlugin
     - (void)addPools:(CDVInvokedUrlCommand*) command;
+    - (void)addItems:(CDVInvokedUrlCommand*) command;
+    - (void)hasLoaded:(CDVInvokedUrlCommand*) command;
 @end
