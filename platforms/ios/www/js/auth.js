@@ -38,12 +38,26 @@ var auth = {
             app.user = result.user;
             
             console.log("result.user in presentLogin:", JSON.stringify(app.user));
-
-
         }).then(function() {
             //iosNav.getCurrentTabControllerName();
-            iosNav.toggleWebView();
-            iosNav.getCurrentTabControllerName(app.user);
+            //iosNav.alignPoolsWebViewAfterLoad();
+            //iosNav.toggleWebView();
+            var db = firebase.firestore();
+
+            // Disable deprecated features
+            db.settings({
+              timestampsInSnapshots: true
+            });
+
+            db.collection("users").doc(app.user.uid).set(JSON.parse(JSON.stringify(app.user)))
+                .then(function() {
+                    console.log("Document successfully written!");
+                    iosNav.getCurrentTabControllerName(app.user);
+                })
+                .catch(function(error) {
+                    console.error("Error writing document: ", error);
+                });
+
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;

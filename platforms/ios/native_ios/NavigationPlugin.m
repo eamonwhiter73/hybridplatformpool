@@ -85,6 +85,56 @@
     }];
 }
 
+- (void)fullScreenWebView:(CDVInvokedUrlCommand *)command {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    
+    CGRect webViewBound = CGRectMake(0,
+                                     0,
+                                     width,
+                                     height);
+    
+    CGRect webViewFrame = CGRectMake(0,
+                                     0,
+                                     width,
+                                     height);
+    
+    CDVViewController* pools = (CDVViewController*)[self viewController];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        pools.webView.bounds = webViewBound;
+        pools.webView.frame = webViewFrame;
+    });
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)alignPoolsWebView:(CDVInvokedUrlCommand*) command {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    
+    CGRect webViewBound = CGRectMake(0,
+                                     0,
+                                     width,
+                                     64);
+    
+    CGRect webViewFrame = CGRectMake(0,
+                                     height - 132,
+                                     width,
+                                     64);
+    
+    PoolsTableViewController* pools = (PoolsTableViewController*)[self viewController];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        pools.webView.bounds = webViewBound;
+        pools.webView.frame = webViewFrame;
+    });
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 /*- (void)changeRootViewControllerToTabBar:(CDVInvokedUrlCommand*) command {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CDVViewController *tbc = (CDVViewController*)[sb instantiateViewControllerWithIdentifier:@"tabbar"];

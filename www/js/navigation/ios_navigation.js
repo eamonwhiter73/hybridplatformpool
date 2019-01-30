@@ -29,7 +29,8 @@ var iosNav = {
                   }
                   else {
                     console.log("else of onAuthStateChanged for no user scenario");
-                    iosNav.toggleWebViewWithAuth();
+                    //ADD CHECK FOR WEBVIEW
+                    iosNav.presentAuth();
                   }
                 });
             }
@@ -51,7 +52,8 @@ var iosNav = {
           case "PoolsTableViewController":
             pools.addPools();
             console.log("got through user check in PoolsTableViewController");
-            //iosNav.hideWebView();
+            iosNav.alignPoolsWebView();
+            //iosNav.toggleWebView();
             break;
           case "PoolTableViewController":
             if(controller.webViewHidden == true) {
@@ -61,6 +63,22 @@ var iosNav = {
             else {
                 viewItem.retrieveItem();
             }
+            break;
+          case "CreateItemViewController":
+                const cameraSuccess = function(uri) {
+                    app.currentPictureURI = uri;
+                    itemCreator.setPicture();
+                };
+
+                const cameraError = function(err) {
+                    alert(err);
+                };
+
+                navigator.camera.getPicture(cameraSuccess, cameraError, {
+                    quality: 10, 
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    sourceType:Camera.PictureSourceType.CAMERA
+                });
             break;
           default:
             // code block
@@ -78,19 +96,39 @@ var iosNav = {
         }
         cordova.exec(win, fail, "ListPlugin", "hasLoaded", []);
     },
-    toggleWebViewWithAuth: function () {
-        var win = function(d) {
-            console.log("web view toggled, going to auth");
+    presentAuth: function () {
+        /*var win = function(d) {
+            console.log("web view toggled, going to auth");*/
 
-            auth.presentLogin().then(function() {
-                auth.getResult();
-            });
+        auth.presentLogin().then(function() {
+            auth.getResult();
+        });
+        /*};
+        var fail = function(e) {
+            console.log(e)
+        }*/
+
+        //cordova.exec(win, fail, "NavigationPlugin", "toggleWebView", []);
+    },
+    alignPoolsWebView: function () {
+        var win = function(d) {
+            console.log("web view toggled, going to auth"); 
         };
         var fail = function(e) {
             console.log(e)
         }
 
-        cordova.exec(win, fail, "NavigationPlugin", "toggleWebView", []);
+        cordova.exec(win, fail, "NavigationPlugin", "alignPoolsWebView", []);
+    },
+    fullScreenWebView: function () {
+        var win = function(d) {
+            console.log("web view toggled, going to auth");
+        };
+        var fail = function(e) {
+            console.log(e)
+        }
+
+        cordova.exec(win, fail, "NavigationPlugin", "fullScreenWebView", []);
     },
     toggleWebView: function () {
         var win = function(d) {
@@ -145,7 +183,7 @@ var iosNav = {
         }
 
         cordova.exec(win, fail, "NavigationPlugin", "dismissLoginViewController", []);
-    }
+    },
 };
 
 

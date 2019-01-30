@@ -26,11 +26,24 @@
         NSLog(@"tappedIndexPath: %@", [self.tapRow description]);
         
         //[self performSegueWithIdentifier:@"toItemViewController" sender:self];
+
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+        
+        CGRect webViewBound = CGRectMake(0,
+                                         0,
+                                         width,
+                                         height);
+        
+        CGRect webViewFrame = CGRectMake(0,
+                                         0,
+                                         width,
+                                         height);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            WKWebView* webView = (WKWebView*)self.webView;
-            [webView reload];
-            self.webView.hidden = false;
+            [(WKWebView*)self.webView reload];
+            self.webView.bounds = webViewBound;
+            self.webView.frame = webViewFrame;
         });
     }
 }
@@ -49,7 +62,6 @@
                                      0);
     
     self.webView.frame = webViewBound;
-    self.webView.backgroundColor = [UIColor clearColor];
     
     [super viewWillLayoutSubviews];
 }*/
@@ -58,7 +70,6 @@
     [super viewDidLoad];
     [self.pools addObject:@"Hello"];
     self.tableView.separatorColor = [UIColor clearColor];
-    self.webView.hidden = true;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

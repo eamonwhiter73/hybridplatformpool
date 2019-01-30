@@ -19,6 +19,7 @@
 
 var app = {
     user: null,
+    currentPictureURI: null,
     // Application Constructor
     initialize: function () {
         this.bindEvents();

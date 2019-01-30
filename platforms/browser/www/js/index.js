@@ -55,42 +55,7 @@ var app = {
     receivedEvent: function (id) {
         console.log('Received Event: ' + id);
 
-        var initialTab = iosNav.getCurrentTabControllerName();
-        console.log("initialTab:", initialTab);
-
-        if(initialTab != "AuthViewController") {
-            firebase.auth().onAuthStateChanged(function(user) {
-              if (user) {
-                this.user = user;
-                var tabName = iosNav.getCurrentTabControllerName();
-
-                console.log("tabName:", tabName);
-
-                switch(tabName.className) {
-                  case "PoolsTableViewController":
-                    pools.addPools()
-                    break;
-                  case "PoolTableViewController":
-                    if(tabName.webViewHidden == true) {
-                        pool.addItems();
-                    }
-                    else {
-                        viewItem.retrieveItem();
-                    }
-                    break;
-                  default:
-                    // code block
-                }
-              }
-              else {
-                console.log("else of onAuthStateChanged for no user scenario");
-                auth.presentLogin();
-              }
-            });
-        }
-        else {
-            auth.presentLogin();
-        }
+        iosNav.getCurrentTabControllerName();
     }
 };
 

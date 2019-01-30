@@ -27,7 +27,83 @@ var pools = {
         }
         var items = ["Hello", "How"];
         cordova.exec(win, fail, "ListPlugin", "addPools", items);
-    }
+    },
+    createPool: function() {
+        console.log("creating pool");
+        
+        document.getElementById("create_pool_button").style.display = "none";
+        var appNode = document.getElementById("app");
+        //var templateNode = document.importNode(document.querySelector("#create_pool>#create_pool_container"), true);
+
+        appNode.appendChild(pools.cloneTemplate("create_pool"));
+
+        iosNav.fullScreenWebView();
+    },
+    submitPool: function() {
+        console.log("submitting pool");
+
+        var db = firebase.firestore();
+
+        // Disable deprecated features
+        db.settings({
+          timestampsInSnapshots: true
+        });
+
+        var timestamp = new Date().getTime();
+        var poolName = document.getElementById("pool_name").value;
+
+        db.collection("users").doc(app.user.uid).collection("pools").doc(timestamp.toString()).set({"active": true, "id": timestamp})
+            .then(function() {
+                console.log("Pool added to users pools collection successfully");
+                // Add a new document in collection "cities"
+                db.collection("pools").doc(timestamp.toString()).set({"id": timestamp, "name": poolName, "nearestTo": null, "location": null})
+                    .then(function() {
+                        console.log("Pool named successfully");
+                        db.collection("pools").doc(timestamp.toString()).collection("users").doc(app.user.uid).set({"active": true, "uid":app.user.uid})
+                            .then(function() {
+                                // Add a new document in collection "cities"
+                                db.collection("users").doc(app.user.uid).update({"lastLocation": null, "poolIds":null, "selectedPoolId": null})
+                                    .then(function() {
+                                        console.log("Last location/poolId added");
+                                        pools.removeAfterSubmit();
+                                        pools.showCreatePoolButton();
+                                        iosNav.alignPoolsWebView();
+                                    })
+                                    .catch(function(error) {
+                                        console.error("Error writing document: ", error);
+                                    });
+                                })
+                                .catch(function(error) {
+                                    console.log("Something wrong in: User added to users collection of pool: "+error);
+                                })
+                        })
+                        .catch(function(error) {
+                            console.log("Something wrong in: Pool named successfully: "+error);
+                        })
+            })
+            .catch(function(error) {
+                console.log("Something wrong in: Pool being added to users pools collection: "+error);
+            })
+        
+        /*document.getElementById("create_pool_button").style.display = "none";
+        var appNode = document.getElementById("app");
+        //var templateNode = document.importNode(document.querySelector("#create_pool>#create_pool_container"), true);
+
+        appNode.appendChild(pools.cloneTemplate("create_pool"));
+
+        iosNav.fullScreenWebView();*/
+    },
+    cloneTemplate: function (templateId) {
+        var temp = document.getElementById(templateId);
+        var clon = temp.content.cloneNode(true);
+        return clon;
+    },
+    removeAfterSubmit: function () {
+        document.querySelector("#app>#create_pool_container").remove();
+    },
+    showCreatePoolButton: function () {
+        document.getElementById("create_pool_button").style.display = "flex";
+    },
 };
 
 

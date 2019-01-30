@@ -2,6 +2,7 @@
 #import <Cordova/CDVViewController.h>
 @import WebKit;
 #import "AuthViewController.h"
+#import "PoolsTableViewController.h"
 
 @interface NavigationPlugin : CDVPlugin
 
@@ -10,6 +11,8 @@
 - (void)describeView:(CDVInvokedUrlCommand*) command;
 - (void)presentLoginController:(CDVInvokedUrlCommand*) command;
 - (void)dismissLoginViewController:(CDVInvokedUrlCommand*) command;
+- (void)alignPoolsWebView:(CDVInvokedUrlCommand*) command;
+- (void)fullScreenWebView:(CDVInvokedUrlCommand*) command;
 //- (void)changeRootViewControllerToTabBar:(CDVInvokedUrlCommand*) command;
 
 @end

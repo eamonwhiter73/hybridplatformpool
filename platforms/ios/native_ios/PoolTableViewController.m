@@ -26,9 +26,8 @@
         NSLog(@"tappedIndexPath: %@", [self.tapRow description]);
         
         //[self performSegueWithIdentifier:@"toItemViewController" sender:self];
-        
+        WKWebView* webView = (WKWebView*)self.webView;
         dispatch_async(dispatch_get_main_queue(), ^{
-            WKWebView* webView = (WKWebView*)self.webView;
             [webView reload];
             self.webView.hidden = false;
         });

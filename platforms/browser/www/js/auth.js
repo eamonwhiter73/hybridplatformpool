@@ -18,14 +18,14 @@
  */
 
 var auth = {
-    presentLogin: function() {
+    presentLogin: async function () {
         var provider = new firebase.auth.FacebookAuthProvider();
-        //provider.addScope('default');
         provider.addScope('email');
-        //provider.addScope('pages_show_list');
+        provider.addScope('pages_show_list');
 
-        firebase.auth().signInWithRedirect(provider);
-
+        return firebase.auth().signInWithRedirect(provider);
+    },
+    getResult: function () {
         firebase.auth().getRedirectResult().then(function(result) {
         
             if (result.credential) {
@@ -37,12 +37,32 @@ var auth = {
             // The signed-in user info.
             app.user = result.user;
             
-            console.log("result.user in presentLogin:", app.user);
+            console.log("result.user in presentLogin:", JSON.stringify(app.user));
+        }).then(function() {
+            //iosNav.getCurrentTabControllerName();
+            //iosNav.alignPoolsWebViewAfterLoad();
+            //iosNav.toggleWebView();
+            var db = firebase.firestore();
+
+            // Disable deprecated features
+            db.settings({
+              timestampsInSnapshots: true
+            });
+
+            db.collection("users").doc(app.user.uid).set(JSON.parse(JSON.stringify(app.user)))
+                .then(function() {
+                    console.log("Document successfully written!");
+                    iosNav.getCurrentTabControllerName(app.user);
+                })
+                .catch(function(error) {
+                    console.error("Error writing document: ", error);
+                });
+
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
-            console.log("errorMessage in presentLogin:", errorMessage);
+            alert("Error:", error);
             
             // The email of the user's account used.
             var email = error.email;
