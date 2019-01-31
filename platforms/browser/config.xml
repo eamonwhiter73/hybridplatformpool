@@ -8,6 +8,5 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
-    <resource-file src="GoogleService-Info.plist" />
     <access origin="*" />
 </widget>

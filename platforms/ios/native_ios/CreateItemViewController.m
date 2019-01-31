@@ -11,7 +11,9 @@
 
 @end
 
-@implementation CreateItemViewController
+@implementation CreateItemViewController {
+    BOOL viewAppeared;
+}
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -20,9 +22,46 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if(viewAppeared) {
+        [(WKWebView*)self.webView reload];
+        viewAppeared = false;
+    }
+    else {
+        viewAppeared = true;
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"viewDidDisappear in CreateItemViewController");
+    
+    NSLog(@"Views being described in CreateItemViewController: %@", [[[[[[UIApplication sharedApplication] delegate] window] subviews] objectAtIndex:0] description]);
+    
+    NSString* subDescrip = [[[[[[UIApplication sharedApplication] delegate] window] subviews] objectAtIndex:0] description];
+    
+    NSRange range = NSMakeRange(1, 3);
+    
+    NSString* firstThree = [subDescrip substringWithRange:range];
+    
+    NSLog(@"firstThree: %@", firstThree);
+    
+    if([firstThree isEqual:@"UIT"]) {
+        viewAppeared = false;
+        self.webView.hidden = false;
+    }
+    else {
+        self.webView.hidden = true;
+        viewAppeared = true;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.separatorColor = [UIColor clearColor];
+    viewAppeared = false;
+    self.webView.hidden = true;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

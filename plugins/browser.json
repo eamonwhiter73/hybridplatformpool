@@ -21,6 +21,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.eamon.pool"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.eamon.pool"
     }
   },
   "dependent_plugins": {

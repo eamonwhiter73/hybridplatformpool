@@ -48,7 +48,7 @@
 }
 
 - (void)describeView:(CDVInvokedUrlCommand *)command {
-    NSLog(@"View being described: %@", [[[[[UIApplication sharedApplication] delegate] window] subviews] description]);
+    NSLog(@"Views being described: %@", [[[[[UIApplication sharedApplication] delegate] window] subviews] description]);
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -133,6 +133,26 @@
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)goToTab:(CDVInvokedUrlCommand*) command {
+    NSArray* args = command.arguments;
+    NSString* tabFromCordova = [NSString stringWithFormat:@"%@", args[0]];
+    NSLog(@"tabFromCordova: %@", tabFromCordova);
+    
+    CDVViewController* controller = (CDVViewController*)[[[[self viewController] tabBarController] viewControllers] objectAtIndex:[tabFromCordova integerValue]];
+    
+    CDVViewController* currentController = (CDVViewController*)[[[self viewController] tabBarController] selectedViewController];
+    
+    [[[self viewController] tabBarController] setSelectedViewController:controller];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)reloadWebView:(CDVInvokedUrlCommand*) command {
+    CDVViewController* cont = (CDVViewController*)[self viewController];
+    [(WKWebView*)cont.webView reload];
 }
 
 /*- (void)changeRootViewControllerToTabBar:(CDVInvokedUrlCommand*) command {

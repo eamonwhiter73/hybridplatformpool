@@ -20,6 +20,7 @@
 var app = {
     user: null,
     currentPictureURI: null,
+    selectedPoolId: null,
     // Application Constructor
     initialize: function () {
         this.bindEvents();

@@ -6,6 +6,7 @@
 //
 
 #import <Cordova/CDVViewController.h>
+@import WebKit;
 
 @interface CreateItemViewController : CDVViewController
 

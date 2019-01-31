@@ -64,6 +64,22 @@ var iosNav = {
                 viewItem.retrieveItem();
             }
             break;
+          case "CreateItemViewController":
+                const cameraSuccess = function(uri) {
+                    app.currentPictureURI = uri;
+                    itemCreator.setPicture();
+                };
+
+                const cameraError = function(err) {
+                    alert(err);
+                };
+
+                navigator.camera.getPicture(cameraSuccess, cameraError, {
+                    quality: 10, 
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    sourceType:Camera.PictureSourceType.CAMERA
+                });
+            break;
           default:
             // code block
         }
@@ -167,7 +183,17 @@ var iosNav = {
         }
 
         cordova.exec(win, fail, "NavigationPlugin", "dismissLoginViewController", []);
-    }
+    },
+    goToTab: function (tab) {
+        var win = function(d) {
+            console.log("view controller switched");
+        };
+        var fail = function(e) {
+            console.log(e)
+        }
+
+        cordova.exec(win, fail, "NavigationPlugin", "goToTab", [tab]);
+    },
 };
 
 

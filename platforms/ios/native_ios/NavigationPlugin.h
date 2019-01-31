@@ -3,6 +3,7 @@
 @import WebKit;
 #import "AuthViewController.h"
 #import "PoolsTableViewController.h"
+#import "PoolTableViewController.h"
 
 @interface NavigationPlugin : CDVPlugin
 
@@ -13,6 +14,8 @@
 - (void)dismissLoginViewController:(CDVInvokedUrlCommand*) command;
 - (void)alignPoolsWebView:(CDVInvokedUrlCommand*) command;
 - (void)fullScreenWebView:(CDVInvokedUrlCommand*) command;
+- (void)goToTab:(CDVInvokedUrlCommand*) command;
+- (void)reloadWebView:(CDVInvokedUrlCommand*) command;
 //- (void)changeRootViewControllerToTabBar:(CDVInvokedUrlCommand*) command;
 
 @end

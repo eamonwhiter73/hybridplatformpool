@@ -48,6 +48,8 @@ var iosNav = {
         console.log("user in routing:", JSON.stringify(user));
         app.user = user;
 
+        dataRetreive.getSelectedPoolId();
+
         switch(controller.className) {
           case "PoolsTableViewController":
             pools.addPools();
@@ -67,10 +69,12 @@ var iosNav = {
           case "CreateItemViewController":
                 const cameraSuccess = function(uri) {
                     app.currentPictureURI = uri;
+                    //iosNav.toggleWebView();
                     itemCreator.setPicture();
                 };
 
                 const cameraError = function(err) {
+                    iosNav.toggleWebView();
                     alert(err);
                 };
 
@@ -183,6 +187,16 @@ var iosNav = {
         }
 
         cordova.exec(win, fail, "NavigationPlugin", "dismissLoginViewController", []);
+    },
+    goToTab: function (tab) {
+        var win = function(d) {
+            console.log("view controller switched");
+        };
+        var fail = function(e) {
+            console.log(e)
+        }
+
+        cordova.exec(win, fail, "NavigationPlugin", "goToTab", [tab.toString()]);
     },
 };
 

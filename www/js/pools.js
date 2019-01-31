@@ -52,19 +52,20 @@ var pools = {
         var timestamp = new Date().getTime();
         var poolName = document.getElementById("pool_name").value;
 
-        db.collection("users").doc(app.user.uid).collection("pools").doc(timestamp.toString()).set({"active": true, "id": timestamp})
+        db.collection("users").doc(app.user.uid).collection("pools").doc(poolName).set({"active": true, "id": timestamp})
             .then(function() {
                 console.log("Pool added to users pools collection successfully");
                 // Add a new document in collection "cities"
-                db.collection("pools").doc(timestamp.toString()).set({"id": timestamp, "name": poolName, "nearestTo": null, "location": null})
+                db.collection("pools").doc(poolName).set({"id": timestamp, "name": poolName, "nearestTo": null, "location": null})
                     .then(function() {
                         console.log("Pool named successfully");
-                        db.collection("pools").doc(timestamp.toString()).collection("users").doc(app.user.uid).set({"active": true, "uid":app.user.uid})
+                        db.collection("pools").doc(poolName).collection("users").doc(app.user.uid).set({"active": true, "uid":app.user.uid})
                             .then(function() {
                                 // Add a new document in collection "cities"
-                                db.collection("users").doc(app.user.uid).update({"lastLocation": null, "poolIds":null, "selectedPoolId": null})
+                                db.collection("users").doc(app.user.uid).update({"lastLocation": null, "poolIds":null, "selectedPoolId": poolName})
                                     .then(function() {
                                         console.log("Last location/poolId added");
+                                        app.selectedPoolId = poolName;
                                         pools.removeAfterSubmit();
                                         pools.showCreatePoolButton();
                                         iosNav.alignPoolsWebView();
