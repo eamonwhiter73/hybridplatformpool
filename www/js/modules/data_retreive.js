@@ -30,7 +30,7 @@ var dataRetreive = {
 
         return docRef.get().then(function(doc) {
             if (doc.exists) {
-                console.log("Document data:", doc.data());
+                console.log("Document data:", JSON.stringify(doc.data()));
 
                 app.selectedPoolId = doc.data().selectedPoolId;
             } else {

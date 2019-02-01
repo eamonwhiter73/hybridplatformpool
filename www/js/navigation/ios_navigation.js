@@ -48,45 +48,48 @@ var iosNav = {
         console.log("user in routing:", JSON.stringify(user));
         app.user = user;
 
-        dataRetreive.getSelectedPoolId();
+        dataRetreive.getSelectedPoolId().then(function() {
+            switch(controller.className) {
+              case "PoolsTableViewController":
+                pools.addPools();
+                console.log("got through user check in PoolsTableViewController");
+                iosNav.alignPoolsWebView();
+                //iosNav.toggleWebView();
+                break;
+              case "PoolTableViewController":
+                if(controller.webViewHidden == true) {
+                    pool.addItems();
+                    //iosNav.hideWebView();
+                }
+                else {
+                    viewItem.retrieveItem();
+                }
+                break;
+              case "CreateItemViewController":
+                    const cameraSuccess = function(uri) {
+                        app.currentPictureURI = uri;
+                        //iosNav.toggleWebView();
+                        itemCreator.setPicture();
+                    };
 
-        switch(controller.className) {
-          case "PoolsTableViewController":
-            pools.addPools();
-            console.log("got through user check in PoolsTableViewController");
-            iosNav.alignPoolsWebView();
-            //iosNav.toggleWebView();
-            break;
-          case "PoolTableViewController":
-            if(controller.webViewHidden == true) {
-                pool.addItems();
-                //iosNav.hideWebView();
+                    const cameraError = function(err) {
+                        iosNav.toggleWebView();
+                        alert(err);
+                    };
+
+                    navigator.camera.getPicture(cameraSuccess, cameraError, {
+                        quality: 10, 
+                        destinationType: Camera.DestinationType.FILE_URI,
+                        sourceType:Camera.PictureSourceType.CAMERA
+                    });
+                break;
+              case "WishlistViewController":
+                wishlist.init();
+                break;
+              default:
+                // code block
             }
-            else {
-                viewItem.retrieveItem();
-            }
-            break;
-          case "CreateItemViewController":
-                const cameraSuccess = function(uri) {
-                    app.currentPictureURI = uri;
-                    //iosNav.toggleWebView();
-                    itemCreator.setPicture();
-                };
-
-                const cameraError = function(err) {
-                    iosNav.toggleWebView();
-                    alert(err);
-                };
-
-                navigator.camera.getPicture(cameraSuccess, cameraError, {
-                    quality: 10, 
-                    destinationType: Camera.DestinationType.FILE_URI,
-                    sourceType:Camera.PictureSourceType.CAMERA
-                });
-            break;
-          default:
-            // code block
-        }
+        });
     },
     hasLoaded: function (user, controller) {
         var win = function(d) {

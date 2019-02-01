@@ -32,25 +32,29 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/create_item.css">
-        <link rel="stylesheet" type="text/css" href="css/wishlist.css">
-        <title>CDV View</title>
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/wishlist.css">
+        <title>CDV View Wishlist</title>
     </head>
     <body>
-    		<template id="create_pool">
-    			<div id="create_pool_container">
-    				<div id="inputs_holder">
-	    				<label>Pool name:</label>
-	    				<input id="pool_name" type="text" name="pool_name">
-	    			</div>
-	    			<span id="create_pool_submit_button" onclick="pools.submitPool();">SUBMIT</span>
-    			</div>
-    		</template>
+        <template id="add_to_wishlist">
+            <div id="add_to_wishlist_container">
+                <div id="inputs_holder">
+                    <label>Item name:</label>
+                    <input id="add_item_name" type="text" name="add_item_name">
+                    <label>Item description:</label>
+                    <input id="add_item_description" type="text" name="add_item_description">
+                    <label>Where to buy:</label>
+                    <input id="where_to_buy" type="text" name="where_to_buy">
+                </div>
+                <span id="wishlist_upload_item_button" onclick="wishlist.uploadItem();">SUBMIT</span>
+            </div>
+        </template>
         <div id="app">
-            <span id="create_pool_button" onclick="pools.createPool();">CREATE POOL</span>
+            <div id="wishlist_items_container"></div>
+            <span id="wishlist_add_item_button" onclick="wishlist.addItem();">ADD ITEM</span>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="../cordova.js"></script>
         <!-- Firebase App is always required and must be first -->
         <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
 
@@ -64,14 +68,14 @@
         <!-- Comment out (or don't include) services that you don't want to use -->
         <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-storage.js"></script> -->
 
-        <script type="text/javascript" src="js/modules/data_retreive.js"></script>
-        <script type="text/javascript" src="js/wishlist.js"></script>
-        <script type="text/javascript" src="js/pools.js"></script>
-        <script type="text/javascript" src="js/create_item.js"></script>
-        <script type="text/javascript" src="js/navigation/ios_navigation.js"></script>
-        <script type="text/javascript" src="js/auth.js"></script>
-        <script type="text/javascript" src="js/pool.js"></script>
-        <script type="text/javascript" src="js/view_item.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="../js/modules/data_retreive.js"></script>
+        <script type="text/javascript" src="../js/wishlist.js"></script>
+        <script type="text/javascript" src="../js/pools.js"></script>
+        <script type="text/javascript" src="../js/create_item.js"></script>
+        <script type="text/javascript" src="../js/navigation/ios_navigation.js"></script>
+        <script type="text/javascript" src="../js/auth.js"></script>
+        <script type="text/javascript" src="../js/pool.js"></script>
+        <script type="text/javascript" src="../js/view_item.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
     </body>
 </html>

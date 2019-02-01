@@ -111,7 +111,7 @@
                             <outletCollection property="gestureRecognizers" destination="9kC-Tj-ZLt" appends="YES" id="LrH-xw-xAV"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Pools" image="first" id="acW-dT-cKf" userLabel="Pools"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="9kC-Tj-ZLt">
@@ -228,7 +228,7 @@
                             <outletCollection property="gestureRecognizers" destination="pB0-SM-m6B" appends="YES" id="iFn-VE-Enp"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Pool" image="second" id="cPa-gy-q4n" userLabel="Pool"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pB0-SM-m6B">
@@ -252,13 +252,14 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Cip-px-IOq" kind="relationship" relationship="viewControllers" id="Yea-Oq-xa6"/>
+                        <segue destination="EoR-YQ-Mfv" kind="relationship" relationship="viewControllers" id="ify-fm-M16"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Add Item-->
         <scene sceneID="u2W-UR-CWT">
             <objects>
                 <tableViewController id="Cip-px-IOq" customClass="CreateItemViewController" sceneMemberID="viewController">
@@ -271,12 +272,32 @@
                             <outlet property="delegate" destination="Cip-px-IOq" id="Ldz-Gh-rcN"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="MhB-LK-byN"/>
+                    <tabBarItem key="tabBarItem" title="Add Item" id="MhB-LK-byN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3n-TD-HNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1" y="775"/>
+        </scene>
+        <!--Wishlist-->
+        <scene sceneID="XbX-BO-22M">
+            <objects>
+                <tableViewController id="EoR-YQ-Mfv" userLabel="Wishlist" customClass="WishlistViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2t3-RR-H29">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="EoR-YQ-Mfv" id="N2Y-uJ-f09"/>
+                            <outlet property="delegate" destination="EoR-YQ-Mfv" id="N3h-EO-GDR"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Wishlist" id="x6C-jc-zVd" userLabel="Wishlist"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tV-7n-8OD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-778" y="775"/>
         </scene>
     </scenes>
     <resources>

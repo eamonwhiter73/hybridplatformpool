@@ -20,7 +20,7 @@
 var viewItem = {
     retrieveItem: function() {
         var win = function(d) {
-            console.log("Item#:", d);
+            console.log("Item#:", d); //SHOW BOX THAT WAS TOUCHED/TAPPED
         };
         var fail = function(e) {
             console.log(e)

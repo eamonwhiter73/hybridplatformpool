@@ -27,6 +27,7 @@
 		DD7C816E2203458700F1666E /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C81682203458700F1666E /* CDVAssetLibraryFilesystem.m */; };
 		DD7C816F2203458700F1666E /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C816A2203458700F1666E /* CDVFile.m */; };
 		DD7C81702203458700F1666E /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C816C2203458700F1666E /* CDVLocalFilesystem.m */; };
+		DD7C81A12203CDD400F1666E /* WishlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C81A02203CDD400F1666E /* WishlistViewController.m */; };
 		DDBEBA4A21F4BAAD0027BB01 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBEBA3C21F4BAAD0027BB01 /* AuthViewController.m */; };
 		DDBEBA4B21F4BAAD0027BB01 /* ItemViewPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBEBA3E21F4BAAD0027BB01 /* ItemViewPlugin.m */; };
 		DDBEBA4C21F4BAAD0027BB01 /* ListPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBEBA4021F4BAAD0027BB01 /* ListPlugin.m */; };
@@ -126,6 +127,8 @@
 		DD7C816A2203458700F1666E /* CDVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVFile.m; sourceTree = "<group>"; };
 		DD7C816B2203458700F1666E /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVLocalFilesystem.h; sourceTree = "<group>"; };
 		DD7C816C2203458700F1666E /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVLocalFilesystem.m; sourceTree = "<group>"; };
+		DD7C819F2203CDD400F1666E /* WishlistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishlistViewController.h; sourceTree = "<group>"; };
+		DD7C81A02203CDD400F1666E /* WishlistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishlistViewController.m; sourceTree = "<group>"; };
 		DDBEBA3B21F4BAAD0027BB01 /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
 		DDBEBA3C21F4BAAD0027BB01 /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		DDBEBA3D21F4BAAD0027BB01 /* ItemViewPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewPlugin.h; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				DDBEBA4921F4BAAD0027BB01 /* PoolTableViewController.m */,
 				DD7C812C2200EEF800F1666E /* CreateItemViewController.h */,
 				DD7C812D2200EEF800F1666E /* CreateItemViewController.m */,
+				DD7C819F2203CDD400F1666E /* WishlistViewController.h */,
+				DD7C81A02203CDD400F1666E /* WishlistViewController.m */,
 			);
 			path = native_ios;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				D2440B672F7E4F2FB17018E1 /* CDVJpegHeaderWriter.m in Sources */,
 				784CE5461C444C4C82B5D720 /* CDVFile.m in Sources */,
 				356F07D88D15474381614700 /* CDVLocalFilesystem.m in Sources */,
+				DD7C81A12203CDD400F1666E /* WishlistViewController.m in Sources */,
 				EA4EC37E981B4697A64E5318 /* CDVAssetLibraryFilesystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

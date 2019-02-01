@@ -1,67 +1,29 @@
 //
-//  CreateItemViewController.m
+//  WishlistViewController.m
 //  HybridPool
 //
-//  Created by Eamon White on 1/29/19.
+//  Created by Eamon White on 1/31/19.
 //
 
-#import "CreateItemViewController.h"
+#import "WishlistViewController.h"
 
-@interface CreateItemViewController ()
+@interface WishlistViewController ()
 
 @end
 
-@implementation CreateItemViewController {
-    BOOL viewAppeared;
-}
+@implementation WishlistViewController
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     self.wwwFolderName = @"www/templates";
-    self.startPage = @"create_item.html";
+    self.startPage = @"wishlist.html";
+    self.webView.scrollView.bounces = NO;
     return self;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if(viewAppeared) {
-        [(WKWebView*)self.webView reload];
-        viewAppeared = false;
-    }
-    else {
-        viewAppeared = true;
-    }
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    NSLog(@"viewDidDisappear in CreateItemViewController");
-    
-    NSLog(@"Views being described in CreateItemViewController: %@", [[[[[UIApplication sharedApplication] delegate] window] subviews] description]);
-    
-    NSString* subDescrip = [[[[[[UIApplication sharedApplication] delegate] window] subviews] objectAtIndex:0] description];
-    
-    NSRange range = NSMakeRange(1, 3);
-    
-    NSString* firstThree = [subDescrip substringWithRange:range];
-    
-    NSLog(@"firstThree: %@", firstThree);
-    
-    if([firstThree isEqual:@"UIT"]) {
-        viewAppeared = false;
-        self.webView.hidden = false;
-    }
-    else {
-        self.webView.hidden = true;
-        viewAppeared = true;
-    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.separatorColor = [UIColor clearColor];
-    viewAppeared = false;
-    self.webView.hidden = true;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
