@@ -5,12 +5,13 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1B90FC0C28A841AAABDC68F9 /* UIImage+CropScaleOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C707A6B913425A9B90320C /* UIImage+CropScaleOrientation.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		295D49E44FCF480EB0A274A3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44651A3F315240888A60AB65 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		295D49E44FCF480EB0A274A3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44651A3F315240888A60AB65 /* ImageIO.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
@@ -50,6 +51,7 @@
 		DDEB0C8221F5350C00B0807E /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB0C7021F5350C00B0807E /* CDVInAppBrowser.m */; };
 		DDEB0C8321F5350C00B0807E /* CBTBrowserTab.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB0C7321F5350C00B0807E /* CBTBrowserTab.m */; };
 		DDEB0C8421F5350C00B0807E /* CDVBuildInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB0C7621F5350C00B0807E /* CDVBuildInfo.m */; };
+		DDF04FB8220889B8002F26CA /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4ECE7E220884E200DE41F7 /* libSDWebImage iOS static.a */; };
 		E1C3D0D3A425496EB6DFC749 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83068E1E9EB144F3BD2E14D5 /* GoogleService-Info.plist */; };
 		EA4EC37E981B4697A64E5318 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411E7D7A58D4AE2B229153B /* CDVAssetLibraryFilesystem.m */; };
 		F8EB8EDC314E43DABC020F96 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037C52776F7341C3B363CC8C /* AVFoundation.framework */; };
@@ -70,12 +72,61 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = CordovaLib;
 		};
+		DD4ECE7D220884E200DE41F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = "SDWebImage iOS static";
+		};
+		DD4ECE7F220884E200DE41F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4314D1991D0E0E3B004B36C9;
+			remoteInfo = "SDWebImage watchOS static";
+		};
+		DD4ECE81220884E200DE41F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A2CADFF1AB4BB5300B6BC39;
+			remoteInfo = "SDWebImage iOS";
+		};
+		DD4ECE83220884E200DE41F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00733A4C1BC487C000A5A117;
+			remoteInfo = "SDWebImage tvOS";
+		};
+		DD4ECE85220884E200DE41F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 431BB7031D06D2C1006A3455;
+			remoteInfo = "SDWebImage watchOS";
+		};
+		DD4ECE87220884E200DE41F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4397D2F21D0DDD8C00BB2784;
+			remoteInfo = "SDWebImage OSX";
+		};
 		DDBEBA3821F4B1AF0027BB01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C0C01EB21E3911D50056E6CB;
 			remoteInfo = Cordova;
+		};
+		DDF04FB622088885002F26CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = "SDWebImage iOS static";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -112,6 +163,7 @@
 		93F478C996F144C6937578AA /* CDVFile.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVFile.m; path = "cordova-plugin-file/CDVFile.m"; sourceTree = "<group>"; };
 		A2CE91F59C46494EA1BED5FA /* CoreLocation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C10A82C0E8864C4FA53C21C3 /* CDVCamera.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVCamera.h; path = "cordova-plugin-camera/CDVCamera.h"; sourceTree = "<group>"; };
+		DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImageClone/SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		DD7C812C2200EEF800F1666E /* CreateItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateItemViewController.h; sourceTree = "<group>"; };
 		DD7C812D2200EEF800F1666E /* CreateItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateItemViewController.m; sourceTree = "<group>"; };
 		DD7C81322200F0E100F1666E /* CDVCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVCamera.h; sourceTree = "<group>"; };
@@ -183,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF04FB8220889B8002F26CA /* libSDWebImage iOS static.a in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				295D49E44FCF480EB0A274A3 /* ImageIO.framework in Frameworks */,
 				9A1B64216A4F47ADA6312C3C /* CoreLocation.framework in Frameworks */,
@@ -217,6 +270,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */,
 				DDBEBA3A21F4BAAD0027BB01 /* native_ios */,
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
@@ -312,6 +366,19 @@
 			name = Plugins;
 			path = HybridPool/Plugins;
 			sourceTree = SOURCE_ROOT;
+		};
+		DD4ECE74220884E200DE41F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD4ECE7E220884E200DE41F7 /* libSDWebImage iOS static.a */,
+				DD4ECE80220884E200DE41F7 /* libSDWebImage watchOS static.a */,
+				DD4ECE82220884E200DE41F7 /* SDWebImage.framework */,
+				DD4ECE84220884E200DE41F7 /* SDWebImage.framework */,
+				DD4ECE86220884E200DE41F7 /* SDWebImage.framework */,
+				DD4ECE88220884E200DE41F7 /* SDWebImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
 		};
 		DD7C81312200F0E100F1666E /* cordova-plugin-camera */ = {
 			isa = PBXGroup;
@@ -492,6 +559,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DDF04FB722088885002F26CA /* PBXTargetDependency */,
 				301BF551109A68C00062928A /* PBXTargetDependency */,
 			);
 			name = HybridPool;
@@ -526,11 +594,16 @@
 				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
 					ProductGroup = 301BF52E109A57CC0062928A /* Products */;
 					ProjectRef = 301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */;
+				},
+				{
+					ProductGroup = DD4ECE74220884E200DE41F7 /* Products */;
+					ProjectRef = DD4ECE73220884E200DE41F7 /* SDWebImage.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -546,6 +619,48 @@
 			fileType = archive.ar;
 			path = libCordova.a;
 			remoteRef = 301BF534109A57CC0062928A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD4ECE7E220884E200DE41F7 /* libSDWebImage iOS static.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage iOS static.a";
+			remoteRef = DD4ECE7D220884E200DE41F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD4ECE80220884E200DE41F7 /* libSDWebImage watchOS static.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage watchOS static.a";
+			remoteRef = DD4ECE7F220884E200DE41F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD4ECE82220884E200DE41F7 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = DD4ECE81220884E200DE41F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD4ECE84220884E200DE41F7 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = DD4ECE83220884E200DE41F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD4ECE86220884E200DE41F7 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = DD4ECE85220884E200DE41F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD4ECE88220884E200DE41F7 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = DD4ECE87220884E200DE41F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		DDBEBA3921F4B1AF0027BB01 /* Cordova.framework */ = {
@@ -586,7 +701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "NODEJS_PATH=/usr/local/bin; NVM_NODE_PATH=~/.nvm/versions/node/`nvm version 2>/dev/null`/bin; N_NODE_PATH=`find /usr/local/n/versions/node/* -maxdepth 0 -type d 2>/dev/null | tail -1`/bin; XCODE_NODE_PATH=`xcode-select --print-path`/usr/share/xcs/Node/bin; PATH=$NODEJS_PATH:$NVM_NODE_PATH:$N_NODE_PATH:$XCODE_NODE_PATH:$PATH && node cordova/lib/copy-www-build-step.js";
+			shellScript = "NODEJS_PATH=/usr/local/bin; NVM_NODE_PATH=~/.nvm/versions/node/`nvm version 2>/dev/null`/bin; N_NODE_PATH=`find /usr/local/n/versions/node/* -maxdepth 0 -type d 2>/dev/null | tail -1`/bin; XCODE_NODE_PATH=`xcode-select --print-path`/usr/share/xcs/Node/bin; PATH=$NODEJS_PATH:$NVM_NODE_PATH:$N_NODE_PATH:$XCODE_NODE_PATH:$PATH && node cordova/lib/copy-www-build-step.js\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -644,6 +759,11 @@
 			name = CordovaLib;
 			targetProxy = 301BF550109A68C00062928A /* PBXContainerItemProxy */;
 		};
+		DDF04FB722088885002F26CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SDWebImage iOS static";
+			targetProxy = DDF04FB622088885002F26CA /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -670,10 +790,15 @@
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include\"",
 					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"$(inherited)",
+					"/Volumes/EamonWD/hybrid_pool_latest_1/HybridPool/platforms/ios/SDWebImageClone/SDWebImage/SDWebImage/**",
 				);
 				INFOPLIST_FILE = "HybridPool/HybridPool-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = HybridPool;
 				PROVISIONING_PROFILE_SPECIFIER = Pool;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -701,10 +826,15 @@
 					"\"$(OBJROOT)/UninstalledProducts/include\"",
 					"\"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include\"",
 					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"$(inherited)",
+					"/Volumes/EamonWD/hybrid_pool_latest_1/HybridPool/platforms/ios/SDWebImageClone/SDWebImage/SDWebImage/**",
 				);
 				INFOPLIST_FILE = "HybridPool/HybridPool-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = HybridPool;
 				PROVISIONING_PROFILE_SPECIFIER = Poolpool;
 				TARGETED_DEVICE_FAMILY = "1,2";

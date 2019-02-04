@@ -35,13 +35,30 @@
     NSArray* items = command.arguments;
     
     if(items != nil || items.count > 0) {
-        NSLog(@"addpools %@", [items description]);
+        
+        PoolTableViewController* poolvc = (PoolTableViewController*)[self viewController].tabBarController.viewControllers[1];
+        //NSLog(@"addpools %@", [items description]);
         
         if([[self viewController] isKindOfClass:[PoolTableViewController class]]) {
-            PoolTableViewController* poolvc = (PoolTableViewController*)[self viewController].tabBarController.viewControllers[1];
             [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [poolvc.items addObject:obj];
+        
+                if(idx % 2 == 1) {
+                    if(idx == 0) {
+                        [poolvc.leftItems addObject:obj];
+                    }
+                    else {
+                        [poolvc.rightItems addObject:obj];
+                    }
+                }
+                else {
+                    [poolvc.leftItems addObject:obj];
+                }
             }];
+            
+            if(items.count % 2 == 1) {
+                [poolvc.rightItems addObject:[NSNull null]];
+            }
+            
             [poolvc.tableView reloadData];
         }
 

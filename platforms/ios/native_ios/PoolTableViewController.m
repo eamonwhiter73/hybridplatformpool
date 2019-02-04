@@ -36,7 +36,10 @@
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    self.items = [[NSMutableArray alloc]init];
+    self.leftItems = [[NSMutableArray alloc]init];
+    self.rightItems = [[NSMutableArray alloc]init];
+    self.wwwFolderName = @"www/templates";
+    self.startPage = @"pool.html";
     return self;
 }
 
@@ -47,10 +50,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.items addObject:@"Hio"];
     self.tableView.separatorColor = [UIColor clearColor];
-    self.wwwFolderName = @"www/templates";
-    self.startPage = @"pool.html";
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -73,18 +73,33 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.items count];
+    return [self.leftItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cellForRowAtIndexPath getting called - row: %li", (long)indexPath.row);
     
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell1" forIndexPath:indexPath];
-    NSLog(@"indexPath.row: %li, %@", (long)indexPath.row, [self.items objectAtIndex:indexPath.row]);
+    PoolsTableViewCell *cell = (PoolsTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    PoolsTableViewCell *cell = (PoolsTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    if (cell == nil) {
+        NSLog(@"cell == nil");
+        cell = [[PoolsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     
-    cell.cellLeftViewLabel.text = [self.items objectAtIndex:indexPath.row];
-    cell.cellRightViewLabel.text = [self.items objectAtIndex:indexPath.row];
+    NSURL* leftURL = [NSURL URLWithString:[[self.leftItems objectAtIndex:indexPath.row] valueForKey:@"downloadURL"]];
+    [cell.cellLeftImageView sd_setImageWithURL:leftURL];
+    cell.cellLeftViewLabel.text = [[self.leftItems objectAtIndex:indexPath.row] valueForKey:@"item"];
+
+    if(![[self.rightItems objectAtIndex:indexPath.row] isEqual:[NSNull null]]) {
+        NSURL* rightURL = [NSURL URLWithString:[[self.rightItems objectAtIndex:indexPath.row] valueForKey:@"downloadURL"]];
+        [cell.cellRightImageView sd_setImageWithURL:rightURL];
+        cell.cellRightViewLabel.text = [[self.rightItems objectAtIndex:indexPath.row] valueForKey:@"item"];
+    }
+    else {
+        cell.cellRightImageView.image = nil;
+        cell.cellRightViewLabel.text = @"";
+    }
     
     return cell;
 }

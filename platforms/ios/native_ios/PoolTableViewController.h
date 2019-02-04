@@ -10,9 +10,11 @@
 @import WebKit;
 #import "PoolsTableViewCell.h"
 #import <Cordova/CDVViewController.h>
+#import "UIImageView+WebCache.h"
 
 @interface PoolTableViewController : CDVViewController
-@property (nonatomic,strong) NSMutableArray* items;
+@property (nonatomic,strong) NSMutableArray* leftItems;
+@property (nonatomic,strong) NSMutableArray* rightItems;
 @property (nonatomic) CGPoint lastTouch;
 @property (nonatomic, strong) NSIndexPath* tapRow;
 

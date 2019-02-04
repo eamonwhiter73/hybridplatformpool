@@ -58,6 +58,7 @@ var iosNav = {
                 break;
               case "PoolTableViewController":
                 if(controller.webViewHidden == true) {
+                    console.log("is PoolTableViewController being called twice?");
                     pool.addItems();
                     //iosNav.hideWebView();
                 }

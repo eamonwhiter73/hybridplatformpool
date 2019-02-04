@@ -25,8 +25,27 @@ var pool = {
         var fail = function(e) {
             console.log(e)
         }
-        var items = ["Hello", "How"];
-        cordova.exec(win, fail, "ListPlugin", "addItems", items);
+
+        var db = firebase.firestore();
+
+        // Disable deprecated features
+        db.settings({
+          timestampsInSnapshots: true
+        });
+
+        db.collection("pools").doc(app.selectedPoolId).collection("items").doc("items_array").get()
+            .then(function(doc) {
+                if (doc.exists) {
+                    console.log("Document data:", JSON.stringify(doc.data()));
+                    cordova.exec(win, fail, "ListPlugin", "addItems", doc.data().array);
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            });
     }
 };
 
