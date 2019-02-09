@@ -99,11 +99,6 @@ var itemCreator = {
             // Initialize Cloud Firestore through Firebase
             var db = firebase.firestore();
 
-            // Disable deprecated features
-            db.settings({
-              timestampsInSnapshots: true
-            });
-
             var obj = JSON.parse(JSON.stringify({date: date.toString(), 
                                                  downloadURL: downloadURL,
                                                  item: document.querySelector('#name_input').value,

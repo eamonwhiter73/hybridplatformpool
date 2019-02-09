@@ -6,4 +6,5 @@
     - (void)addPools:(CDVInvokedUrlCommand*) command;
     - (void)addItems:(CDVInvokedUrlCommand*) command;
     - (void)hasLoaded:(CDVInvokedUrlCommand*) command;
+    - (void)toggleTableViewSection:(CDVInvokedUrlCommand*) command;
 @end

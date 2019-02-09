@@ -50,7 +50,7 @@ body {
     display: flex;
     flex: 1;                
     text-align:center;
-    padding: 8;
+    padding: 0;
     height: 100%;
 }
 

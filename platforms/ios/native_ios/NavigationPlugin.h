@@ -16,6 +16,7 @@
 - (void)fullScreenWebView:(CDVInvokedUrlCommand*) command;
 - (void)goToTab:(CDVInvokedUrlCommand*) command;
 - (void)reloadWebView:(CDVInvokedUrlCommand*) command;
+- (void)toggleTableView:(CDVInvokedUrlCommand*) command;
 //- (void)changeRootViewControllerToTabBar:(CDVInvokedUrlCommand*) command;
 
 @end

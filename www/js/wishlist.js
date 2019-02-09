@@ -34,11 +34,6 @@ var wishlist = {
 
         var db = firebase.firestore();
 
-        // Disable deprecated features
-        db.settings({
-          timestampsInSnapshots: true
-        });
-
         db.collection("pools").doc(app.selectedPoolId).collection("wishlist").doc("wishes")
             .onSnapshot(function(doc) {
                 console.log("data from wishlist: ", doc.data());
@@ -139,11 +134,6 @@ var wishlist = {
                                             }));
 
         var db = firebase.firestore();
-
-        // Disable deprecated features
-        db.settings({
-          timestampsInSnapshots: true
-        });
 
         db.collection("pools").doc(app.selectedPoolId).collection("wishlist").doc("wishes").update({array: firebase.firestore.FieldValue.arrayUnion(item)})
             .then(function() {

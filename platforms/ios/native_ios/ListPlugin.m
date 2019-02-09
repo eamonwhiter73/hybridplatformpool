@@ -62,7 +62,7 @@
             [poolvc.tableView reloadData];
         }
 
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"pool"];
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:items];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     } else {
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -88,6 +88,26 @@
             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }
     }
+}
+
+- (void)togglePoolTableViewSection:(CDVInvokedUrlCommand*) command {
+    PoolTableViewController* view = (PoolTableViewController*)[self viewController];
+    if(view.showTableSections == true) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            view.showTableSections = false;
+            [view.tableView reloadData];
+        });
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            view.showTableSections = true;
+            [view.tableView reloadData];
+        });
+    }
+    
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 @end

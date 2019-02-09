@@ -20,12 +20,7 @@
 var dataRetreive = {
     getSelectedPoolId: async function() {
         var db = firebase.firestore();
-
-        // Disable deprecated features
-        db.settings({
-          timestampsInSnapshots: true
-        });
-
+        
         var docRef = db.collection("users").doc(app.user.uid);
 
         return docRef.get().then(function(doc) {

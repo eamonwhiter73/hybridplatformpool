@@ -44,11 +44,6 @@ var pools = {
 
         var db = firebase.firestore();
 
-        // Disable deprecated features
-        db.settings({
-          timestampsInSnapshots: true
-        });
-
         var timestamp = new Date().getTime();
         var poolName = document.getElementById("pool_name").value;
 

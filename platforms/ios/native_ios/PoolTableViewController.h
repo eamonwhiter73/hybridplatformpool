@@ -15,6 +15,7 @@
 @interface PoolTableViewController : CDVViewController
 @property (nonatomic,strong) NSMutableArray* leftItems;
 @property (nonatomic,strong) NSMutableArray* rightItems;
+@property (nonatomic) BOOL showTableSections;
 @property (nonatomic) CGPoint lastTouch;
 @property (nonatomic, strong) NSIndexPath* tapRow;
 

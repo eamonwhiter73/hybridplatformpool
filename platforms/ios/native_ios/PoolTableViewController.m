@@ -40,11 +40,13 @@
     self.rightItems = [[NSMutableArray alloc]init];
     self.wwwFolderName = @"www/templates";
     self.startPage = @"pool.html";
+    self.showTableSections = true;
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.webView.hidden = true;
+    self.showTableSections = true;
     [super viewWillAppear:animated];
 }
 
@@ -68,7 +70,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    if(self.showTableSections) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

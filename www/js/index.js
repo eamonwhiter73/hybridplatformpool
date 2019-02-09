@@ -37,20 +37,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-
-        // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
-        var config = {
-            apiKey: "AIzaSyAByGZpdKzSn2PLIDZxWtBw9dIMwxZLGNk",
-            authDomain: "pool-3f2de.firebaseapp.com",
-            databaseURL: "https://pool-3f2de.firebaseio.com",
-            projectId: "pool-3f2de",
-            storageBucket: "pool-3f2de.appspot.com",
-            messagingSenderId: "843791335284",
-        };
-        
-        firebase.initializeApp(config);
-
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

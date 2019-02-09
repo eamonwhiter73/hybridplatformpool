@@ -1,0 +1,31 @@
+#borrow_item_button {
+    min-height: 64px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#desc_container {
+    padding-bottom: 69px;
+}
+
+.display_container {
+
+}
+
+#info_container {
+    
+}
+
+#pool_container {
+
+}
+
+#display_text {
+
+}
+
+#app {
+
+}

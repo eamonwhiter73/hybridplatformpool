@@ -29,6 +29,24 @@
     }
 }
 
+- (void)toggleTableView:(CDVInvokedUrlCommand*) command {
+    CDVViewController* view = (CDVViewController*)[self viewController];
+    if(view.tableView.hidden == true) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            view.tableView.hidden = false;
+        });
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            view.tableView.hidden = true;
+        });
+    }
+    
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void)toggleWebView:(CDVInvokedUrlCommand*) command {
     CDVViewController* view = (CDVViewController*)[self viewController];
     if(view.webView.hidden == true) {

@@ -44,11 +44,6 @@ var auth = {
             //iosNav.toggleWebView();
             var db = firebase.firestore();
 
-            // Disable deprecated features
-            db.settings({
-              timestampsInSnapshots: true
-            });
-
             db.collection("users").doc(app.user.uid).set(JSON.parse(JSON.stringify(app.user)))
                 .then(function() {
                     console.log("Document successfully written!");

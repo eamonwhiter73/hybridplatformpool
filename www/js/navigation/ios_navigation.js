@@ -63,7 +63,7 @@ var iosNav = {
                     //iosNav.hideWebView();
                 }
                 else {
-                    viewItem.retrieveItem();
+                    pool.retrieveItem();
                 }
                 break;
               case "CreateItemViewController":
@@ -201,6 +201,16 @@ var iosNav = {
         }
 
         cordova.exec(win, fail, "NavigationPlugin", "goToTab", [tab.toString()]);
+    },
+    toggleTableView: function () {
+        var win = function(d) {
+            console.log("view controller tableview toggled");
+        };
+        var fail = function(e) {
+            console.log(e)
+        }
+
+        cordova.exec(win, fail, "NavigationPlugin", "toggleTableView", []);
     },
 };
 
