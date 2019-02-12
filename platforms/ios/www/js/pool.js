@@ -48,9 +48,74 @@ var pool = {
                 console.error("Error writing document: ", error);
             });
     },
+    scrollWindow: function () {
+        setTimeout(function() {
+            window.scrollTo(0, 150);
+        }, 1000)
+    },
     borrowItem: function () {
-        iosNav.toggleWebView();
-        pool.togglePoolTableViewSection();
+        console.log("showing datepicker");
+        
+        document.getElementById("pool_container").style.display = "none";
+        var appNode = document.getElementById("app");
+
+        appNode.appendChild(pool.cloneTemplate("borrow_item"));
+
+        document.getElementById("daterange").addEventListener("touchstart", pool.scrollWindow, false);
+
+        var date = new Date();
+
+        $(function() {
+          $('input[name="daterange"]').daterangepicker({
+            "minYear": 2019,
+            "maxSpan": {
+                "days": 5
+            },
+            "locale": {
+                "format": "MM/DD/YYYY",
+                "separator": " - ",
+                "applyLabel": "Apply",
+                "cancelLabel": "Cancel",
+                "fromLabel": "From",
+                "toLabel": "To",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "Su",
+                    "Mo",
+                    "Tu",
+                    "We",
+                    "Th",
+                    "Fr",
+                    "Sa"
+                ],
+                "monthNames": [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "firstDay": 1
+            },
+            "alwaysShowCalendars": true,
+            "startDate": (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear(),
+            "endDate": (date.getMonth() + 1) + '/' + (date.getDate() + 3) + '/' +  date.getFullYear(),
+            "opens": "center"
+          }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+          });
+        });
+
+        //iosNav.toggleWebView();
+        //pool.togglePoolTableViewSection();
     },
     setPicture: function(box, items) {
         var picContainer = document.getElementById("pic_container");
@@ -134,6 +199,11 @@ var pool = {
         }
 
         cordova.exec(win, fail, "ListPlugin", "togglePoolTableViewSection", []);
+    },
+    cloneTemplate: function (templateId) {
+        var temp = document.getElementById(templateId);
+        var clon = temp.content.cloneNode(true);
+        return clon;
     },
 };
 

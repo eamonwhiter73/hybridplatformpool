@@ -28,15 +28,27 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://www.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; media-src *; img-src file: https://www.google.com https://firestore.googleapis.com https://firebasestorage.googleapis.com">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://www.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; media-src *; img-src file: https://www.google.com https://firestore.googleapis.com https://firebasestorage.googleapis.com">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <link rel="stylesheet" type="text/css" href="../css/index.css">
         <link rel="stylesheet" type="text/css" href="../css/pool.css">
         <title>CDV View Pool</title>
     </head>
     <body>
+        <template id="borrow_item">
+            <div id="borrow_container">
+                <div id="instructions">
+                    <h3>Please select a start date and an end date:<h3>
+                </div>
+                <input readonly type="text" name="daterange" id="daterange"/>
+            </div>
+        </template>
         <div id="app">
             <div id="pool_container">
                 <div id="pic_container"></div>
@@ -57,24 +69,6 @@
         <script type="text/javascript" src="../cordova.js"></script>
         <!-- Firebase App is always required and must be first -->
         <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
-        <script>
-          // Initialize Firebase
-          // TODO: Replace with your project's customized code snippet
-          var config = {
-            "apiKey": "AIzaSyAByGZpdKzSn2PLIDZxWtBw9dIMwxZLGNk",
-            "authDomain": "pool-3f2de.firebaseapp.com",
-            "databaseURL": "https://pool-3f2de.firebaseio.com",
-            "projectId": "pool-3f2de",
-            "storageBucket": "pool-3f2de.appspot.com",
-            "messagingSenderId": "843791335284",
-          };
-          
-          firebase.initializeApp(config);
-        </script>
-
-        <!-- Comment out (or don't include) services that you don't want to use -->
-        <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-storage.js"></script> -->
 
         <script type="text/javascript" src="../js/modules/data_retreive.js"></script>
         <script type="text/javascript" src="../js/navigation/ios_navigation.js"></script>

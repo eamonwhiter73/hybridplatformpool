@@ -2,11 +2,11 @@ const admin = require('../node_modules/firebase-admin');
 const firebase = require('../node_modules/firebase');
 const serviceAccount = require("./service-key.json");
 
-const data = require("./data.json");
+const data = require("./g-acc.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://pool-3f2de.firebaseio.com"
+    databaseURL: "https://pool-297e9.firebaseio.com"
 });
 
 //data && Object.keys(data).forEach(key => {
@@ -20,10 +20,11 @@ for(var objj of array) {
                                                  downloadURL: objj.downloadURL,
                                                  item: objj.item,
                                                  description: objj.description,
-                                                 active: true}));
+                                                 active: true,
+                                                 user: objj.user}));
     admin.firestore()
         .collection("pools")
-        .doc("Poolool")
+        .doc("Pool")
         .collection("items")
         .doc("items_array")
         .update({array: admin.firestore.FieldValue.arrayUnion(obj)})

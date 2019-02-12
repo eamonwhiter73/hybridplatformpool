@@ -7,7 +7,34 @@
 }
 
 #desc_container {
-    padding-bottom: 70px;
+    padding-bottom: 69px;
+}
+
+#borrow_container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.drp-calendar.right {
+    display: none;
+}
+
+.daterangepicker {
+    padding-bottom: 69px;
+}
+
+input[name="daterange"] {
+    width: 200px;
+    height: 44px;
+    font-size: 32px;
+}
+
+h3 {
+    padding-left: 8px;
 }
 
 .display_container {
