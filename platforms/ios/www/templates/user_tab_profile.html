@@ -37,31 +37,42 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <link rel="stylesheet" type="text/css" href="../css/index.css">
-        <link rel="stylesheet" type="text/css" href="../css/pool.css">
+        <link rel="stylesheet" type="text/css" href="../css/user_tab_profile.css">
         <title>CDV View Pool</title>
     </head>
     <body>
-        <template id="borrow_item">
-            <div id="borrow_container">
-                <div id="instructions">
-                    <h3>Please select a start date and an end date:<h3>
-                </div>
-                <input readonly type="text" name="daterange" id="daterange"/>
-            </div>
-        </template>
         <div id="app">
-            <div id="pool_container">
-                <div id="pic_container"></div>
-                <div id="info_container">
-                    <div id="text_container" class="display_container">
-                        <label>Name</label>
-                        <div class="display_text" id="name_display"></div>
+            <div id="user_tab_profile_container">
+                <div id="user_tab_profile_top">
+                    <div id="pic_container"></div>
+                </div>
+                <div id="info_section">
+                    <div class="inner_info_section" id="user_tab_profile_username">
+                        <label>Username</label>
+                        <input type="text" name="username" id="username"/>
                     </div>
-                    <div id="desc_container" class="display_container">
-                        <label>Description</label>
-                        <div class="display_text" id="description_display"></div>
-                        <span id="borrow_item_button" onclick="pool.borrowItem();">BORROW</span>
+                    <div class="inner_info_section" id="user_tab_profile_email">
+                        <label>Email</label>
+                        <input type="text" name="email" id="email"/>
                     </div>
+                    <div id="change_password_button" onclick="userTabProfile.changePassword();">CHANGE PASSWORD</div>
+                </div>
+                <div class="scroll_view" id="currently_borrowing">
+                    <label>Borrowing</label>
+                </div>
+                <div class="scroll_view" id="my_items">
+                    <label>Sharing</label>
+                </div>
+                <div id="points_rating">
+                    <div class="inner_points_rating">
+                        <label>Rating</label>
+                    </div>
+                    <div class="inner_points_rating">
+                        <label>Points</label>
+                    </div>
+                </div>
+                <div id="achievements">
+                    <label>Achievements</label>
                 </div>
             </div>
         </div>
@@ -73,7 +84,7 @@
         <script type="text/javascript" src="../js/modules/data_retreive.js"></script>
         <script type="text/javascript" src="../js/navigation/ios_navigation.js"></script>
         <script type="text/javascript" src="../js/auth.js"></script>
-        <script type="text/javascript" src="../js/pool.js"></script>
+        <script type="text/javascript" src="../js/user_tab_profile.js"></script>
         <script type="text/javascript" src="../js/index.js"></script>
     </body>
 </html>

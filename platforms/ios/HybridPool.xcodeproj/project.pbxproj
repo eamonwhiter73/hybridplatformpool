@@ -51,6 +51,7 @@
 		DDEB0C8321F5350C00B0807E /* CBTBrowserTab.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB0C7321F5350C00B0807E /* CBTBrowserTab.m */; };
 		DDEB0C8421F5350C00B0807E /* CDVBuildInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB0C7621F5350C00B0807E /* CDVBuildInfo.m */; };
 		DDF04FB8220889B8002F26CA /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4ECE7E220884E200DE41F7 /* libSDWebImage iOS static.a */; };
+		DDFA7C3C2213626C00F2C75C /* UserTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFA7C3B2213626C00F2C75C /* UserTabViewController.m */; };
 		E1C3D0D3A425496EB6DFC749 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83068E1E9EB144F3BD2E14D5 /* GoogleService-Info.plist */; };
 		EA4EC37E981B4697A64E5318 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411E7D7A58D4AE2B229153B /* CDVAssetLibraryFilesystem.m */; };
 		F8EB8EDC314E43DABC020F96 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037C52776F7341C3B363CC8C /* AVFoundation.framework */; };
@@ -222,6 +223,8 @@
 		DDEB0C7321F5350C00B0807E /* CBTBrowserTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTBrowserTab.m; sourceTree = "<group>"; };
 		DDEB0C7521F5350C00B0807E /* CDVBuildInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVBuildInfo.h; sourceTree = "<group>"; };
 		DDEB0C7621F5350C00B0807E /* CDVBuildInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVBuildInfo.m; sourceTree = "<group>"; };
+		DDFA7C3A2213626C00F2C75C /* UserTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTabViewController.h; sourceTree = "<group>"; };
+		DDFA7C3B2213626C00F2C75C /* UserTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTabViewController.m; sourceTree = "<group>"; };
 		E4A96E5CA4D048D1ADAA6324 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = "cordova-plugin-camera/CDVJpegHeaderWriter.m"; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 				DD7C812D2200EEF800F1666E /* CreateItemViewController.m */,
 				DD7C819F2203CDD400F1666E /* WishlistViewController.h */,
 				DD7C81A02203CDD400F1666E /* WishlistViewController.m */,
+				DDFA7C3A2213626C00F2C75C /* UserTabViewController.h */,
+				DDFA7C3B2213626C00F2C75C /* UserTabViewController.m */,
 			);
 			path = native_ios;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 				DDEB0C7821F5350C00B0807E /* AppDelegate+CULPlugin.m in Sources */,
 				DDEB0C7D21F5350C00B0807E /* CULPath.m in Sources */,
 				DDEB0C7921F5350C00B0807E /* CULPlugin.m in Sources */,
+				DDFA7C3C2213626C00F2C75C /* UserTabViewController.m in Sources */,
 				DD7C813A2200F0E100F1666E /* CDVCamera.m in Sources */,
 				DD7C813C2200F0E100F1666E /* UIImage+CropScaleOrientation.m in Sources */,
 				DDEB0C8421F5350C00B0807E /* CDVBuildInfo.m in Sources */,

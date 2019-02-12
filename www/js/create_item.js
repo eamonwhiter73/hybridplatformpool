@@ -130,8 +130,14 @@ var itemCreator = {
                     console.error("Error writing document: ", error);
                     db.collection("users").doc(app.user.uid).collection("items").doc("items_array").set({"array": [obj]})
                         .then(function() {
-                            console.log("array in pools items update");
-                            iosNav.goToTab(1);
+                            db.collection("pools").doc(app.selectedPoolId).collection("items").doc("items_array").set({array: firebase.firestore.FieldValue.arrayUnion(obj)})
+                                .then(function() {
+                                    console.log("array in pools update");
+                                    iosNav.goToTab(1);
+                                })
+                                .catch(function(error) {
+                                    console.error("Error writing document: ", error);
+                                });
                         })
                         .catch(function(error) {
                             console.error("Error writing document: ", error);

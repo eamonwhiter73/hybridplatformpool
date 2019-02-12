@@ -249,6 +249,7 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Cip-px-IOq" kind="relationship" relationship="viewControllers" id="Yea-Oq-xa6"/>
                         <segue destination="EoR-YQ-Mfv" kind="relationship" relationship="viewControllers" id="ify-fm-M16"/>
+                        <segue destination="c9q-ce-jzv" kind="relationship" relationship="viewControllers" id="NXv-Ho-P0r"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -294,6 +295,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tV-7n-8OD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-778" y="775"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="DFX-Nm-0VC">
+            <objects>
+                <tableViewController id="c9q-ce-jzv" userLabel="Profile" customClass="UserTabViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y2a-Mu-X5u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="c9q-ce-jzv" id="sSi-Dr-beq"/>
+                            <outlet property="delegate" destination="c9q-ce-jzv" id="28s-vP-Axn"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Profile" id="4js-UP-y8C" userLabel="Profile"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vp3-IA-IAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-815" y="0.0"/>
         </scene>
     </scenes>
     <resources>
